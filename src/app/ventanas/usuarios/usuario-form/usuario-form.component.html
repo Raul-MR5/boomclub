@@ -1,0 +1,12 @@
+<base-form [(form)]="form" [config]="formConfig" [errors]="errors" (onButtonClick)="onButtonClick($event)"
+[templates]="[
+    {control: 'rol', type:'item', template: rolTemplate},
+    {control: 'rol', type:'selectedItem', template: rolTemplateSelect}
+    ]"></base-form>
+<ng-template #rolTemplate let-node="node">
+    {{node.codigo}} - {{node.descripcion}}
+</ng-template>
+
+<ng-template #rolTemplateSelect let-node="node">
+    {{node.codigo}}
+</ng-template>

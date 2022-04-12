@@ -1,0 +1,13 @@
+<div class="ui-g">
+    <div class="p-col-12">
+        <div class="card card-w-title">
+            <h1 translate>user.title</h1>
+            <app-tabla-generica [entities]="(entities$ | async)" [loading]="(loading$ | async)"
+                [totalRecords]="(totalRecords$ | async)" [permisos]="permisos" [tableConfig]="tableConfig"
+                [(requestFilter)]="requestFilter" (loadAll)="getAll()" (onButtonClick)="onClick($event)"></app-tabla-generica>
+        </div>
+    </div>
+</div>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+<p-toast></p-toast>
+<app-usuario-modal></app-usuario-modal>

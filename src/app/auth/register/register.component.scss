@@ -1,0 +1,60 @@
+.form-back {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #ab6c6c;
+}
+
+.container {
+    max-width: 960px;
+  }
+
+.form-img {
+    display: flex;
+    justify-content: center;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.btn-back {
+    background-color: #ab6c6c;
+}
+
+.text-pink {
+    color: #ab6c6c;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.invalid-error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: .875em;
+    color: #dc3545;
+}

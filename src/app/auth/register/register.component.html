@@ -1,0 +1,72 @@
+<main class="form-back bg-dark">
+    <form class="form-signin needs-validation" [formGroup]="form" (submit)="submit()">
+        <div class="row g-2">
+            <div class="form-img">
+                <img class="mb-4" src="../../../assets/img/boomclub.png" alt="" width="120" height="120">
+            </div>
+            <h1 class="h3 mb-3 fw-normal">Please register</h1>
+
+            <div class="col-sm-6">
+                <label for="firstName" class="form-label">First name</label>
+                <input formControlName="nombre" type="text" class="form-control" id="firstName" placeholder="" value="">
+                
+                <p class="invalid-error"
+                    *ngIf="form.get('nombre').invalid && (form.get('nombre').dirty || form.get('nombre').touched)">
+                    Name is required
+                </p>
+            </div>
+
+            <div class="col-sm-6">
+                <label for="lastName" class="form-label">Last name <span class="text-muted">(Optional)</span></label>
+                <input formControlName="apellidos" type="text" class="form-control" id="lastName" placeholder=""
+                    value="">
+            </div>
+
+            <div class="col-sm-6">
+                <label for="username" class="form-label">Username</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text">@</span>
+                    <input formControlName="username" type="text" class="form-control" id="username"
+                        placeholder="Username">
+                </div>
+                <p class="invalid-error"
+                    *ngIf="form.get('username').invalid && (form.get('username').dirty || form.get('username').touched)">
+                    Username is required
+                </p>
+            </div>
+
+            <div class="col-6">
+                <label for="email" class="form-label">Email</label>
+                <input formControlName="email" type="email" class="form-control" id="email"
+                    placeholder="you@example.com">
+                    
+                <p class="invalid-error"
+                *ngIf="form.get('email').invalid && (form.get('email').dirty || form.get('email').touched)">
+                Email is required
+            </p>
+            </div>
+
+            <div class="col-sm-6">
+                <label for="password" class="form-label">Password</label>
+                <input formControlName="password" type="password" class="form-control" id="address">
+                
+                <p class="invalid-error"
+                    *ngIf="form.get('password').invalid && (form.get('password').dirty || form.get('password').touched)">
+                    Password is required
+                </p>
+            </div>
+
+            <div class="col-sm-6">
+                <label for="address" class="form-label">Repeat Password</label>
+                <input formControlName="repeat_password" type="password" class="form-control" id="address">
+                
+                <p class="invalid-error"
+                    *ngIf="(form.get('repeat_password').value != form.get('password').value) && (form.get('repeat_password').dirty || form.get('repeat_password').touched)">
+                    The password not match
+                </p>
+            </div>
+
+            <button class="mt-4 w-100 btn btn-lg btn-back" type="submit" [disabled]="(form.invalid || (form.get('repeat_password').value != form.get('password').value))">Register</button>
+        </div>
+    </form>
+</main>
