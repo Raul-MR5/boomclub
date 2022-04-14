@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/shared/models/usuario.model';
 import { AccountService } from 'src/app/shared/services/account.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { UsuarioService } from 'src/app/shared/services/usuario.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private accountSrv: AccountService,
+    // private accountSrv: AccountService,
+    private authSrv: AuthService,
     private usuarioSrv: UsuarioService,
     private router: Router
   ) { }
@@ -24,8 +26,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     if (localStorage.getItem('usuario')) {
       this.router.navigate(['/']);
-    }  
-    
+    }
+
     this.form = this.formBuilder.group({
       id: [''],
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
@@ -42,34 +44,50 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  submit(): void {
-    var nUser: any = {
-      id: this.form.value.id,
-      username: this.form.value.username,
-      password: this.form.value.password,
-      email: this.form.value.email,
-      nombre: this.form.value.nombre,
-      apellidos: this.form.value.apellidos,
-      fecAlta: new Date,
-      fecBaja: null,
-      activo: true,
-      rol: {
-        id: 2
-      }
-    }
+  // submit(): void {
+  //   var nUser: any = {
+  //     id: this.form.value.id,
+  //     username: this.form.value.username,
+  //     password: this.form.value.password,
+  //     email: this.form.value.email,
+  //     nombre: this.form.value.nombre,
+  //     apellidos: this.form.value.apellidos,
+  //     fecAlta: new Date,
+  //     fecBaja: null,
+  //     activo: true,
+  //     rol: {
+  //       id: 2
+  //     }
+  //   }
 
-    this.usuarioSrv.create(nUser)
-      .subscribe(
-        () => {
+  //   this.usuarioSrv.create(nUser)
+  //     .subscribe(
+  //       () => {
+  //         this.router.navigate(['/login']);
+  //       }
+  //     );
+
+  //   // this.accountSrv.login(this.form.value.user, this.form.value.password)
+  //   //   .subscribe(
+  //   //     () => {
+  //   //       this.router.navigate(['/login']);
+  //   //     }
+  //   //   );
+  // }
+
+  async submit() {
+    //this.firebase.collection('Usuarios').get();
+
+    try {
+      console.log(this.form.value.email, this.form.value.password);
+
+      await this.authSrv.register(this.form.value.email, this.form.value.password).then(user => {
+        if (user) {
           this.router.navigate(['/login']);
         }
-      );
-
-    // this.accountSrv.login(this.form.value.user, this.form.value.password)
-    //   .subscribe(
-    //     () => {
-    //       this.router.navigate(['/login']);
-    //     }
-    //   );
+      })
+    } catch (e: any) {
+      alert(e.message)
+    }
   }
 }

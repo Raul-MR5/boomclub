@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AccountService } from 'src/app/shared/services/account.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,18 +9,35 @@ import { AccountService } from 'src/app/shared/services/account.service';
 })
 export class HeaderComponent implements OnInit {
   user;
+  name;
+  photo;
 
   constructor(
-    private accountSrv: AccountService,
+    private authSrv: AuthService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.user = this.accountSrv.usuarioValue.username;
+    // this.user = this.authSrv.usuarioValue.username;
+
+    this.user = this.authSrv.getUsuario()
+    this.user.subscribe(user => {
+      this.name = user.displayName;
+
+      if (this.photo) {
+        this.photo = user.photoURL
+      } else {
+        this.photo = "../assets/img/user-photo.png"
+      }      
+    });
+    
   }
 
-  logout() {
-    this.accountSrv.logout();
+  async logout() {
+    await this.authSrv.logout().then( ()=>{
+      console.log( this.authSrv.getUsuario());
+    }
+    );
     this.router.navigate(['/login']);
   }
 }

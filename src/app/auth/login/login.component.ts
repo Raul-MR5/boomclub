@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     // private accountSrv: AccountService,
-    private authSrv: AuthService,
+    public authSrv: AuthService,
     private firebase: AngularFirestore
   ) { }
 
@@ -46,8 +46,34 @@ export class LoginComponent implements OnInit {
     // );
 
     try {
-      await this.authSrv.login(this.form.value.user, this.form.value.password)
+      console.log(this.form.value.user, this.form.value.password);
+      
+      await this.authSrv.login(this.form.value.user, this.form.value.password).then(user => {
+        if (user) {
+          console.log("entras");
+          this.router.navigate(['/']);
+        }
+      })
+      
+    } catch (e: any) {      
+      alert(e.message)
+    }
+  }
+
+  async google(){
+    try {
+      console.log(this.form.value.user, this.form.value.password);
+      
+      await this.authSrv.googleAuth().then(user => {
+        if (user) {
+          console.log("entras");
+          this.router.navigate(['/']);
+        }
+      })
+      
     } catch (e: any) {
+      console.log("hola");
+      
       alert(e.message)
     }
   }

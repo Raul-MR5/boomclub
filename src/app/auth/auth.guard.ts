@@ -7,25 +7,26 @@ import { AuthService } from '../shared/services/auth.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
+
+  op: Observable<boolean>;
+
   constructor(
     private router: Router,
-    private accountService: AuthService
+    private authService: AuthService
   ) { }
-  
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    // const user = this.accountService.usuarioValue;
-    
-    // if (user) {
-    //   return true;
-    // }
 
-    if (localStorage.getItem('usuario')) {
-      return true;
-    }
+  canActivate(): Observable<boolean> {
+
+    this.authService.authenticated().subscribe(bool=>{
+      if (bool) {   
+        return this.authService.authenticated();
+      } else{
+        this.router.navigate(['/login']);
+        return this.authService.authenticated();
+      }
+    });
+
+    return this.authService.authenticated();
     
-    this.accountService.logout();
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-    return false;
   }
-  
 }
