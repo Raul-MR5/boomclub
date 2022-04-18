@@ -48,10 +48,18 @@ export class LoginComponent implements OnInit {
     try {
       console.log(this.form.value.user, this.form.value.password);
       
+      
+
       await this.authSrv.login(this.form.value.user, this.form.value.password).then(user => {
         if (user) {
-          console.log("entras");
-          this.router.navigate(['/']);
+          this.authSrv.getUsuario().subscribe(user => {
+            if (user.emailVerified) {
+              this.router.navigate(['/']);
+            } else {
+              alert("Verifique su email");
+              this.authSrv.logout();
+            }
+          })
         }
       })
       

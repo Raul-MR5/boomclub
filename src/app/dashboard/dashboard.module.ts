@@ -17,6 +17,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   {
@@ -25,8 +26,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', loadChildren: () => import('src/app/ventanas/home/home.module').then(m => m.HomeModule), canActivate: [AuthGuard], pathMatch: "full"},
-      { path: 'coches',  loadChildren: () => import('src/app/ventanas/coches/coche/coche.module').then(m => m.CocheModule), canActivate: [AuthGuard]},
-      { path: 'lista',  loadChildren: () => import('src/app/ventanas/coches/chochelista/chochelista.module').then(m => m.ChochelistaModule), canActivate: [AuthGuard]},
+      { path: 'biblioteca',  loadChildren: () => import('src/app/ventanas/biblioteca/biblioteca.module').then(m => m.BibliotecaModule), canActivate: [AuthGuard]},
+      // { path: 'lista',  loadChildren: () => import('src/app/ventanas/coches/chochelista/chochelista.module').then(m => m.ChochelistaModule), canActivate: [AuthGuard]},
       // { path: 'perifericos',  loadChildren: () => import('@app/features/components/backoffice/tablas/perifericos/perifericos.module').then(m => m.PerifericoModule), canActivate: [AuthGuard]},
       // { path: 'persona',  loadChildren: () => import('@app/features/components/backoffice/tablas/personas/persona.module').then(m => m.PersonaModule), canActivate: [AuthGuard]},
       // { path: 'hospital',  loadChildren: () => import('@app/features/components/backoffice/tablas/hospital/hospital.module').then(m => m.HospitalModule), canActivate: [AuthGuard]},
@@ -41,6 +42,7 @@ const routes: Routes = [
     MainComponent,
     HeaderComponent,
     MenuComponent,
+    FooterComponent,
     LoginComponent,
     RegisterComponent
   ],

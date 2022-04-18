@@ -32,10 +32,10 @@ export class RegisterComponent implements OnInit {
       id: [''],
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.pattern("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$")]],
-      nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      apellidos: ['', [Validators.minLength(3), Validators.maxLength(50)]],
+      // nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      // apellidos: ['', [Validators.minLength(3), Validators.maxLength(50)]],
       activo: [''],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       repeat_password: ['', Validators.required],
       fecAltaShow: [{ value: '' }],
       fecAlta: [''],
@@ -83,6 +83,13 @@ export class RegisterComponent implements OnInit {
 
       await this.authSrv.register(this.form.value.email, this.form.value.password).then(user => {
         if (user) {
+          user.user.updateProfile({
+            displayName: this.form.value.username
+          })
+
+          this.authSrv.emailVerified();
+          this.authSrv.logout();
+
           this.router.navigate(['/login']);
         }
       })

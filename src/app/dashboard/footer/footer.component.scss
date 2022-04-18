@@ -1,0 +1,14 @@
+footer {
+    height: 7vh;
+    width: 100vw;
+}
+
+.bg-pink {
+    background-color: #ab6c6c;
+}
+
+@media screen and (max-width: 767px) {
+    .ocultar {
+        display: none;
+    }
+}

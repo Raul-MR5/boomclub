@@ -7,17 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  hola: any[] = [
-    {
-      username: "hola"
-    },
-    {
-      username: "hola1"
-    },
-    {
-      username: "hola2"
-    }
-  ];
+  title: string = 'BoomClub';
 
   constructor() { }
 
@@ -27,5 +17,9 @@ export class HomeComponent implements OnInit {
 
   ngOnDestroy(): void {
     document.getElementById("sidebarhome").classList.remove("active")
+  }
+
+  titulo() {
+    this.title = 'Hola'
   }
 }

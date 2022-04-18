@@ -1,6 +1,37 @@
 .main-content-boomclub {
-    height: 90vh;
+    height: 83vh;
     overflow: scroll;
     overflow-x: auto;
     overflow-y: auto;
+}
+
+.main-content-boomclub::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.main-content-boomclub::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.main-content-boomclub::-webkit-scrollbar-button:increment,.main-content-boomclub::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.main-content-boomclub::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.main-content-boomclub::-webkit-scrollbar-thumb {
+    background-color: #ab6c6c;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.main-content-boomclub::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+
+.bg-boomclub {
+    //background-image: url(../../../assets/img/boomclub.png);
 }
