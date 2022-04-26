@@ -2,6 +2,24 @@
     color: #ab6c6c;
 }
 
+.lista-inline {
+    display: inline;
+    margin-left: 10px;
+}
+
+.lista-size {
+    width: 320px;
+    height: 120px;
+}
+
+.song-selector {
+    cursor: pointer;
+}
+
+.align-title-lista {
+    align-items: center;
+}
+
 .div-pointer {
     cursor: pointer
 }

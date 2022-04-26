@@ -1,0 +1,49 @@
+<div class="">
+    <main>
+        <div class="bg-profile">
+        <div class="col-lg-10 mx-auto p-3 py-md-5">
+            <div class="d-flex align-items-center row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+
+                <div class="col">
+                    <div class="card-body d-flex align-items-center">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/boomclub-tfg.appspot.com/o/1-edit.png?alt=media&token=7bf7cb6d-f185-47aa-a892-428e91cc8c0f"
+                            width="250px" height="250px" class="rounded-circle me-2">
+                        <strong class="name">Raúl</strong>
+                    </div>
+
+                    <!-- <div class="col info">
+                        <h1>Raúl</h1>                    
+                    </div> -->
+                </div>
+
+                <div class="col info py-md-5 row row-cols-1 row-cols-sm-3 row-cols-md-3">
+                    <div class="col d-flex align-items-center">
+                        <strong class="text-pink">0 canciones</strong>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <strong class="text-pink">0 seguidores</strong>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <strong class="text-pink">0 seguidos</strong>
+                    </div>
+                    <button class="btn btn-back text-white arreglo" (click)="edit()"><audio src="audio.mp3"></audio>Seguir</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+        <div class="">
+            <ul class="nav nav-tabs">
+                <li class="nav-item div-pointer">
+                    <a class="nav-link color-link active" id="canciones" aria-current="page" (click)="goTo('')">Canciones</a>
+                </li>
+                <li class="nav-item div-pointer">
+                    <a class="nav-link color-link" id="albums" (click)="goTo('artistas')">Albums</a>
+                </li>
+            </ul>
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+</div>

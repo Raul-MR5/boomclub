@@ -8,12 +8,18 @@ import { Router } from '@angular/router';
 })
 export class ArtistasComponent implements OnInit {
 
+  prueba = []
+
   constructor(
     private router: Router
   ) { }
 
   ngOnInit(): void {    
     document.getElementById("artistas").className += " active"
+    
+    for (let i = 1; i <= 20; i++) {
+      this.prueba.push(i)
+    }
   }
 
   ngOnDestroy(): void {

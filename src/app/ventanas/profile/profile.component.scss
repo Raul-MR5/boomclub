@@ -1,0 +1,41 @@
+.name {
+    font-size: 450%;
+    color: #ab6c6c;
+    margin-left: 5%;
+}
+
+.arreglo {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btn-back {
+    background-color: #ab6c6c;    
+    border-radius: 20px;
+}
+
+.info {
+    font-size: 115%;
+    padding: 120px;
+}
+
+.color-link {
+    color: #ab6c6c;
+}
+
+.div-pointer {
+    text-align: center;
+    width: 50%;
+    cursor: pointer
+}
+
+.bg-profile {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/boomclub-tfg.appspot.com/o/backOG3.png?alt=media&token=07ca8e3a-0ce0-49a8-95d6-4a8c2add230d');
+    background-size: cover;
+}
+
+@media screen and (max-width: 767px) {
+    .ocultar {
+        display: none;
+    }
+}

@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   user;
   name;
   photo;
@@ -45,5 +45,9 @@ export class HeaderComponent implements OnInit {
     }
     );
     this.router.navigate(['/login']);
+  }
+
+  edit(){
+    
   }
 }

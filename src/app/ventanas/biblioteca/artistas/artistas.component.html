@@ -1,3 +1,24 @@
-<div class="p-3 py-md-3">
-    hola
+<div class="col-lg-10 mx-auto p-3 py-md-5">
+    <main>
+        <div class="py-4">
+            <h3 class="fs-4 text-pink">Artistas</h3>
+            <hr class="text-pink">
+
+            <div class="py-2 row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+
+                <div class="col" *ngFor="p of prueba">
+                    <div class="shadow-sm song-selector">
+                        <div class="card-body align-title-lista card-back">
+                            <img class="music-cover rounded-circle me-2"
+                                src="https://firebasestorage.googleapis.com/v0/b/boomclub-tfg.appspot.com/o/1-edit.png?alt=media&token=7bf7cb6d-f185-47aa-a892-428e91cc8c0f"
+                                width="100px" height="100px">
+
+                            <h5 class="lista-inline text-pink">BoomClub</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
 </div>

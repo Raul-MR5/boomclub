@@ -27,10 +27,7 @@ const routes: Routes = [
     children: [
       { path: '', loadChildren: () => import('src/app/ventanas/home/home.module').then(m => m.HomeModule), canActivate: [AuthGuard], pathMatch: "full"},
       { path: 'biblioteca',  loadChildren: () => import('src/app/ventanas/biblioteca/biblioteca.module').then(m => m.BibliotecaModule), canActivate: [AuthGuard]},
-      // { path: 'lista',  loadChildren: () => import('src/app/ventanas/coches/chochelista/chochelista.module').then(m => m.ChochelistaModule), canActivate: [AuthGuard]},
-      // { path: 'perifericos',  loadChildren: () => import('@app/features/components/backoffice/tablas/perifericos/perifericos.module').then(m => m.PerifericoModule), canActivate: [AuthGuard]},
-      // { path: 'persona',  loadChildren: () => import('@app/features/components/backoffice/tablas/personas/persona.module').then(m => m.PersonaModule), canActivate: [AuthGuard]},
-      // { path: 'hospital',  loadChildren: () => import('@app/features/components/backoffice/tablas/hospital/hospital.module').then(m => m.HospitalModule), canActivate: [AuthGuard]},
+      { path: 'profile',  loadChildren: () => import('src/app/ventanas/profile/profile.module').then(m => m.ProfileModule), canActivate: [AuthGuard]},
     ]
   },
   { path: 'login', component: LoginComponent },
